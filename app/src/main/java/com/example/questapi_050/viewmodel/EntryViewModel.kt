@@ -23,5 +23,23 @@ class EntryViewModel(private val repositoryDataSiswa: RepositoryDataSiswa):
         }
     }
 
-    
+    //Fungsi untuk menangani saat ada perubahan pada text input
+    fun updateUiState(detailSiswa: DetailSiswa) {
+        uiStateSiswa =
+            UIStateSiswa(detailSiswa = detailSiswa, isEntryValid = validasiInput
+                (detailSiswa))
+    }
+
+    /* Fungsi untuk menyimpan data yang di-entry */
+    suspend fun addSiswa() {
+        if (validasiInput()) {
+            val sip: Response<Void> =repositoryDataSiswa.postDataSiswa(uiStateSiswa
+                .detailSiswa.toDataSiswa())
+            if (sip.isSuccessful){
+                println("Sukses Tambah Data : ${sip.message()}")
+            }else{
+                println("Gagal tambah data : ${sip.errorBody()}")
+            }
+        }
+    }
 }
