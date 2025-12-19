@@ -29,7 +29,7 @@ class HomeViewModel (private val repositoryDataSiswa: RepositoryDataSiswa):
         viewModelScope.launch {
             listSiswa = StatusUiSiswa.Loading
             listSiswa = try {
-                StatusUiSiswa.Succes(repositoryDataSiswa.getAllSiswa())
+                StatusUiSiswa.Succes(repositoryDataSiswa.getDataSiswa())
             }catch (e: IOException){
                 StatusUiSiswa.Error
             }catch (e: HttpException){
