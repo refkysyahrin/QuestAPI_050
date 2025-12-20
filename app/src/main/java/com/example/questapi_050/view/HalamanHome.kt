@@ -138,8 +138,7 @@ fun DaftarSiswa(
     modifier: Modifier=Modifier
 ){
     LazyColumn(modifier = Modifier){
-        items(items = itemSiswa, key = { it.id!! }){
-                person ->
+        items(items = itemSiswa, key = {"${it.id}-${it.nama}"}){ person ->
             ItemSiswa(
                 siswa = person,
                 modifier = Modifier
