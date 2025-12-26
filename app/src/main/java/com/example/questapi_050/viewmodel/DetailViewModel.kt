@@ -9,8 +9,9 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.questapi_050.modeldata.DataSiswa
 import com.example.questapi_050.repositori.RepositoryDataSiswa
+import com.example.questapi_050.uicontroller.route.DestinasiDetail
 import kotlinx.coroutines.launch
-import okhttp3.Response
+import retrofit2.Response
 import okio.IOException
 import retrofit2.HttpException
 
